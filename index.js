@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 1000;
 connectToMongoDB()
   .then(() => {
     server.listen(PORT, () => {
-      console.log("Server is listening on port :->"+PORT);
+      console.log("Server is listening on port :"+PORT);
     });
   })
   .catch((err) => {
