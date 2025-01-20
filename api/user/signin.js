@@ -7,7 +7,7 @@ const signIn = async(req,res) => {
 
     try{
 
-        const {email,password} = req.headers;
+        const {email,password} = req.body;
         const user = await User.findOne({"email" : email});
 
         if(user){
@@ -19,7 +19,6 @@ const signIn = async(req,res) => {
                     const token = jwt.sign({"email":user.email},key);
                     await User.findOneAndUpdate({"email" : user.email}, {"lastLogin" : Date.now()}, {new:true})
                     .then(u => {
-                        console.log(u);
                         res.status(200).json({'token':token, 'user':u});
                     });
                     

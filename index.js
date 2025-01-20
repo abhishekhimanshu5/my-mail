@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+import cors from 'cors';
 import express from "express";
 import userRouter from "./src/routes/userRoutes.js";
 import { connectToMongoDB } from "./src/config/database.js";
@@ -6,6 +7,7 @@ import emailRouter from "./src/routes/emailRoutes.js";
 
 
 const server = express();
+server.use(cors());
 
 dotenv.config();
 server.use(express.json())

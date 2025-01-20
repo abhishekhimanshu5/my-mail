@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken'
 
 const getReceivedMail = async (req,res) => {
     const token = req.headers.authorization;
+
         const decodedPlayload = jwt.decode(token);
 
         Email.aggregate([
