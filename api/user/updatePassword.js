@@ -1,6 +1,7 @@
 import { createOtp, verifyOtp } from "../../jobs/createOtpAndVerify.js";
 import bcrypt from 'bcrypt';
 import User from "../../src/models/userModel.js";
+import signOut from "./signOut.js";
 
 export const generateOtpForPassword = async (req,res) => {
 
@@ -28,7 +29,7 @@ export const generateOtpForPassword = async (req,res) => {
         }
     }
 }
-export const verifyOtpForPassword = async(req,res) => {
+export const verifyOtpForPassword = async(req,res,next) => {
 
     const {userid,otp} = req.headers;
 
@@ -46,7 +47,10 @@ export const verifyOtpForPassword = async(req,res) => {
                 "password" : hashedPassword
             }
         )
-        res.send("password updated successfully")
+
+        //res.send("password updated successfully")
+        req.passwordUpdate = true;
+        signOut(req,res);
     }else{
         res.send("failed to verify otp");
     }

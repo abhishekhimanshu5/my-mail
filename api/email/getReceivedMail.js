@@ -59,7 +59,11 @@ const getReceivedMail = async (req,res) => {
 
         ]).then(mails => {
             //console.log('Aggregated Mails:', mails);  // This should now return the correct result
-            res.status(200).send(mails);
+            const msg = {
+              "success" : true,
+              "response" : mails
+          }
+            res.status(200).json(msg);
           })
           .catch(err => console.error('Error:', err));
 }
