@@ -9,7 +9,12 @@ const signOut = async(req,res) => {
             "token" : token,
         }).then(token => {
             //console.log(token);
-            res.send("signout...")
+            //res.send("signout...")
+            if(req.passwordUpdate && req.passwordUpdate==true){
+                res.send("Password updated.....Signed Out for security reasons......");
+            }else{
+                res.send("Signed Out Successfully");
+            }
         })
     }
     catch(err){

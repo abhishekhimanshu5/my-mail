@@ -4,7 +4,6 @@ import autoMailSender from "./autoMailSender.js";
 export const createOtp = async (userData,purpose) => {
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
-    //console.log("calling create otp")
     const mailData = {
         "receiverId" : userData.userId,
         "subject" : `MyMail : OTP for ${purpose}`,

@@ -12,7 +12,11 @@ export const AuthMiddleWare = async(req,res,next) => {
     if(!blacklistedToken && token){
         jwt.verify(token,key, (err,loaded) => {
             if(err){
-                res.status(400).send(err.message);
+                const msg = {
+                    "success" : false,
+                    "message" : err.message,
+                }
+                res.status(400).json(msg);
             }else{
                 req.middlewareData = {
                     "userName" : loaded.email
