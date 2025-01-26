@@ -1,7 +1,9 @@
 import mongoose from 'mongoose';
-
+import dotenv from "dotenv";
 // MongoDB connection URI
-const url = 'mongodb://localhost:27017/my-mail'; // Database URL
+dotenv.config();
+const url = process.env.DB_URL_CLOUD; // Database URL
+
 
 // Function to connect to MongoDB using Mongoose
 export const connectToMongoDB = async () => {
