@@ -12,6 +12,9 @@ userRouter.post('/register',UserController.register)
 userRouter.post('/user/update-profile',UserController.updateUserProfile)
 userRouter.post('/update-password',AuthMiddleWare,UserController.generateOtpForPassword)
 userRouter.post('/update-password/verify-otp',AuthMiddleWare,UserController.verifyOtpForPassword)
+userRouter.get('/getUserDetails',AuthMiddleWare,UserController.getUserDetails)
+userRouter.get('/get-all-user',UserController.getAllUsers)
+
 
 
 

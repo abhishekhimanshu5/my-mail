@@ -3,6 +3,8 @@ import registerNewUser from "../../api/user/registerNewUser.js";
 import signIn from "../../api/user/signin.js";
 import signOut from "../../api/user/signout.js";
 import {generateOtpForPassword,verifyOtpForPassword} from "../../api/user/updatePassword.js";
+import getUserDetails from "../../api/user/getUserDetails.js";
+import getAllUser from "../../api/user/getAllUser.js";
 
 
 
@@ -33,4 +35,8 @@ export default class UserController {
 // for updating password
     static generateOtpForPassword = generateOtpForPassword
     static verifyOtpForPassword = verifyOtpForPassword
+// for sending user details
+    static getUserDetails = getUserDetails
+// for getting users with limit and page
+    static getAllUsers = getAllUser; // for testing purpose only.........
 }
